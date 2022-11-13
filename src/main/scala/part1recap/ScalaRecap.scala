@@ -80,7 +80,6 @@ object ScalaRecap extends App {
   val aPartialFunction: PartialFunction[Int, Int] = {
     case 1 => 43
     case 8 => 56
-    case _ => 999
   }
 
   // Implicits
@@ -89,6 +88,9 @@ object ScalaRecap extends App {
   def methodWithImplicitArgument(implicit x: Int) = x + 43
   implicit val implicitInt = 67
   val implicitCall = methodWithImplicitArgument
+  println("This is the implicit Call auto filled with a 67... " +  implicitCall)
+  println("out of Partial Function... " +  aPartialFunction(1))
+
 
   // implicit conversions - implicit defs
   case class Person(name: String) {
